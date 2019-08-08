@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <LinearLayout
+            android:id="@+id/show_v"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/transprent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/show_tv"
+                    style="@style/shadoweffect"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="SHOW REVIEW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <ImageView
+                    android:id="@+id/image_arrow"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ic_arrow_down"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <View
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+
+    <Button
+            android:id="@+id/watch"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rectanglebutton_watch"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:text="Click Here To Watch Movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:id="@+id/download"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rectanglebutton_appcolor"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:text="Click Here To Download Movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:id="@+id/copylink"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rectanglebutton_help"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:text="Copy video direct download link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+    <TextView
+            style="@style/shadoweffect"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:text="COMMENTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:id="@+id/commentlayout"
+            android:background="@drawable/rectangle_white"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <RelativeLayout
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/oval"
+                android:layout_width="35dp"
+                android:layout_height="35dp">
+
+            <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_user_icon"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_marginRight="35dp"
+                    android:text="Say Somthing About this"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textAllCaps="false"/>
+
+            <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_send"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/red"
+            android:textSize="9sp"
+            style="@style/shadoweffect"
+            android:text="Be aware, We'll be watching you"
+            android:layout_marginLeft="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textAllCaps="false"/>
+
+    <RelativeLayout
+
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    >
+        <market.goldandgo.videonew1.API.NestedListView
+                android:id="@+id/nlv"
+                android:listSelector="@android:color/transparent"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:padding="10dp"
+                android:background="@drawable/rectangle_tethicolor"
+                android:id="@+id/nocomment"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="30dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:text="Don't be shy! Share your thoughts!"
+                android:layout_marginLeft="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAllCaps="false"/>
+
+    </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+            android:visibility="gone"
+            android:id="@+id/avicom"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            app:indicatorColor="@color/colorPrimaryDark"
+            app:indicatorName="BallClipRotateIndicator"/>
+
+    <Button
+            android:visibility="gone"
+            android:id="@+id/loadmorecomment"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rectangle_softblue"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:text="Load More Comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+                android:layout_margin="10dp"
+              android:layout_height="50dp">
+
+
+    <RelativeLayout
+            android:id="@+id/eprelative"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rectangle_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <TextView
+                style="@style/shadoweffect"
+                android:singleLine="true"
+                android:id="@+id/episode"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:textSize="14sp"
+                android:layout_centerVertical="true"
+                android:text="1. Flash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <TextView
+            android:visibility="gone"
+            android:padding="10dp"
+            android:background="@drawable/rectangle_tethicolor"
+            android:id="@+id/nocomment"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="Don't be shy! Share your thoughts!"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textAllCaps="false"/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+            android:visibility="gone"
+            android:id="@+id/avicom"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            app:indicatorColor="@color/colorPrimaryDark"
+            app:indicatorName="BallClipRotateIndicator"/>
+
+    <Button
+            android:visibility="gone"
+            android:id="@+id/loadmorecomment"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/white"
+            android:background="@drawable/rectangle_softblue"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:text="Load More Comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

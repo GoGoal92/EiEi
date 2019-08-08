@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="market.goldandgo.videonew1">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
+
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Search"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialredTheme.Base" />
+        <activity
+            android:name=".Detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Detail_recycler"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Myexoplayer"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Biged"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialredTheme.Base" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider250682202550620"
+            android:exported="true" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".FacebookLogin"
+            android:screenOrientation="behind"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".Series_Detail_recycler"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Biged_series"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialredTheme.Base" />
+        <activity
+            android:name=".Load_series_video"
+            android:screenOrientation="behind"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".Loading_ourvideo"
+            android:screenOrientation="behind"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".Bookmark"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Mydownloadmanager"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyMaterialredTheme.Base" />
+
+
+        <activity android:name="com.mopub.mobileads.MoPubActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.MraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.RewardedMraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+        <activity android:name="com.mopub.common.privacy.ConsentDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+
+
+
+
+        <service android:name=".firebase.MyAndroidFirebaseMsgService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".firebase.MyAndroidFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".service.DownloadService" />
+
+    </application>
+
+</manifest>

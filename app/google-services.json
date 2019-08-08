@@ -1,0 +1,283 @@
+{
+  "project_info": {
+    "project_number": "895817315425",
+    "firebase_url": "https://fmovie-14887.firebaseio.com",
+    "project_id": "fmovie-14887",
+    "storage_bucket": "fmovie-14887.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:962b95fe56713c4b",
+        "android_client_info": {
+          "package_name": "final.syriam.fmovie830"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-a92logrcgktbo007sjhpq7jbvk4q2i6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "final.syriam.fmovie830",
+            "certificate_hash": "cdff5ade308fd456a373dd4a7cc5e8ce9c80fc86"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:a8e2ee6e5be14925",
+        "android_client_info": {
+          "package_name": "fmovie.fmovieadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-0gf2l1cdfgpc82p2hri1kbulji5tc4nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fmovie.fmovieadmin",
+            "certificate_hash": "2f11a5159248af61dcb476a656bb3ac03523a08f"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:f82076e8f0f787cc",
+        "android_client_info": {
+          "package_name": "kgg.syriam.fmovie82"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-a7ln48muo1hrjt12p33q8aetjrc9ltul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kgg.syriam.fmovie82",
+            "certificate_hash": "cdff5ade308fd456a373dd4a7cc5e8ce9c80fc86"
+          }
+        },
+        {
+          "client_id": "895817315425-qijo68vo2hrs1eosrq7bjmi57p7fi8ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kgg.syriam.fmovie82",
+            "certificate_hash": "b1d5beaf5c36d3bbc7d0432142b362672b2f96ae"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:9edd70ee64b8be47",
+        "android_client_info": {
+          "package_name": "market.goldandgo.videonew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-uasc713j7b6haospr2c4iuimu35rgill.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "market.goldandgo.videonew",
+            "certificate_hash": "60392a1dc977fd76060d57a616bfd9b65dd4377b"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:ff21db5f0c012184",
+        "android_client_info": {
+          "package_name": "market.goldandgo.videonew1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-5pvqhsmopink5nsevl1aqbn6hr6p3k2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "market.goldandgo.videonew1",
+            "certificate_hash": "77a6bb1eef5d90d20a324c16e9b2be4e9c771ca1"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895817315425:android:ae69461ac29a881d",
+        "android_client_info": {
+          "package_name": "market.syriam.fmovie8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895817315425-uq5a9eocduo3n68kcqc7m8tuk3gb7lm9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "market.syriam.fmovie8",
+            "certificate_hash": "75ff28c32d818637fabf3fd55aa44baa444ffaab"
+          }
+        },
+        {
+          "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUY8g93CmtCflYwHLOv-hrjLYvCA-6Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895817315425-3ihvmtk0u30ek4iah218gco0l8jglp4n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+    <android.support.v7.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="16dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativelayout1">
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/background"
+                        android:background="@color/colorPrimary"
+                />
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/icon"
+                        android:src="@drawable/ic_download_alert"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativelayout1"
+                    android:padding="16dp">
+
+
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000000"
+                            android:textSize="16sp"
+                            android:paddingRight="16dp"
+                            android:paddingLeft="16dp"
+                            android:gravity="center"
+                            android:id="@+id/title"
+                            android:textAlignment="center"
+                            android:text="Choose Your Movie Quality"/>
+
+
+
+                    <Button
+                            android:textSize="11sp"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Click Here To Watch Video"
+                            android:id="@+id/sdbutton"
+                            android:background="@drawable/rectanglebutton_appcolor"
+                            android:textColor="#ffffff"
+                    />
+
+
+                    <Button
+                            android:textSize="11sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Click Here To Download Video"
+                            android:id="@+id/hdbutton"
+                            android:background="@drawable/rectanglebutton_download"
+                            android:textColor="#ffffff"
+                    />
+
+                    <Button
+                            android:textSize="11sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Copy video direct download link"
+                            android:id="@+id/cancel_btn"
+                            android:background="@drawable/rectanglebutton_help"
+                            android:textColor="#ffffff"
+                    />
+
+                </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

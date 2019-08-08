@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:id="@+id/activity_main"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:id="@+id/searchcontainer"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/search_click"
+                card_view:cardElevation="6dp"
+                android:background="@color/white"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbarheight">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_search"/>
+
+                <TextView
+                        android:text="Search Movies And Series"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:elevation="0dp"
+
+            android:background="?attr/colorPrimary"
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="fixed"
+            app:tabGravity="fill"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/tab_layout"
+            android:background="@drawable/above_shadow"/>
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/ad_vi1ew">
+
+
+        </android.support.v4.view.ViewPager>
+
+
+
+
+
+        <FrameLayout
+                android:id="@+id/ad_vi1ew"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone">
+
+            <com.mopub.mobileads.MoPubView
+                android:id="@+id/adview"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                />
+
+
+            <RelativeLayout
+                    android:id="@+id/ad_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

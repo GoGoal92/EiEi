@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+
+
+    <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <RelativeLayout
+                        android:id="@+id/border"
+                        android:background="@color/colorPrimary"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:src="@drawable/ic_user_icon"
+                            android:layout_margin="2dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/userprofile"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@color/white"/>
+
+                    <ImageView
+                            android:id="@+id/golduser"
+                            android:visibility="gone"
+                            android:layout_alignParentBottom="true"
+                            android:src="@drawable/gold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            />
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+                    <TextView
+                            style="@style/shadoweffect"
+                            android:id="@+id/username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:padding="5dp"
+                            android:text="Mg Fmovie"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"/>
+
+                    <TextView
+                            android:visibility="gone"
+                            style="@style/shadoweffect"
+                            android:id="@+id/accstaus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:padding="5dp"
+                            android:text="Status : Ads user"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"/>
+
+
+                    <ImageView
+                            android:id="@+id/fakelogin"
+                            android:layout_marginLeft="15dp"
+                            android:layout_width="130dp"
+                            android:layout_height="23dp"
+                            android:background="@drawable/ic_connect_facebook"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/above_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+
+            <TextView
+                    style="@style/shadoweffect"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:padding="5dp"
+                    android:text="Tool"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+
+            <LinearLayout
+
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/bookmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_bookmark"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Bookmark"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/downloadmgr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_downloadmgr"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Download Manager"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/imeng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_information"/>
+
+                <TextView
+                        android:id="@+id/tvengine"
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Image Engine (version 7)"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+            <View
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/above_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+
+            <TextView
+                    style="@style/shadoweffect"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:padding="5dp"
+                    android:text="Help"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/help_use"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_help"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="How To Use Fmovie"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/helpdownload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_help"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="How To Download Movie"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/above_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"/>
+
+            <TextView
+                    style="@style/shadoweffect"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:padding="5dp"
+                    android:text="Information"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/joingroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_facebook_group"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Join Fmovie Facebook Group"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:background="@drawable/listselector_xml"
+                    android:clickable="true"
+                    android:id="@+id/likepage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/ic_fbicon"/>
+
+                <TextView
+                        style="@style/shadoweffect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Like Fmovie Facebook Page"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

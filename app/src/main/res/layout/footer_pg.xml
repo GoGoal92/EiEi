@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="70dp">
+
+
+    <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rv_netfail"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+        <TextView
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/nettv"
+                style="@style/shadoweffect"
+                android:textColor="@color/white"
+                android:text="Network Fail. Touch To Reload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+
+    <com.wang.avi.AVLoadingIndicatorView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/ppgg"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorPrimaryDark"
+            app:indicatorName="BallClipRotateIndicator"/>
+
+</LinearLayout>
