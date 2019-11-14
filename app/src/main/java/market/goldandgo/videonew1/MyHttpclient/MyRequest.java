@@ -1,5 +1,7 @@
 package market.goldandgo.videonew1.MyHttpclient;
 
+import android.util.Log;
+
 import market.goldandgo.videonew1.*;
 import market.goldandgo.videonew1.Fragment.Fragment_Home;
 import market.goldandgo.videonew1.Fragment.Fragment_menu;
@@ -118,7 +120,9 @@ public class MyRequest {
             public void onResponse(Call<String> call, Response<String> response) {
 
                 try {
-                    Splash.Feedback(response.body().toString());
+                    String a=response.body().toString();
+                    Log.e("checkversion",a);
+                    Splash.Feedback(a);
                 } catch (Exception e) {
                     Splash.Feedback_Error();
                     e.printStackTrace();

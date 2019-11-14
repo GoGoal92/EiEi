@@ -13,34 +13,38 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-import at.blogc.android.views.ExpandableTextView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubView;
+
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.wang.avi.AVLoadingIndicatorView;
-import market.goldandgo.videonew1.*;
-import market.goldandgo.videonew1.API.NestedListView;
-import market.goldandgo.videonew1.API.Zawgyitextview;
-import market.goldandgo.videonew1.Object.Constant;
-import market.goldandgo.videonew1.Object.get;
-import market.goldandgo.videonew1.Object.header_object;
-import market.goldandgo.videonew1.Utils.HFRecyclerView;
-import market.goldandgo.videonew1.Utils.Mydatabase;
-import market.goldandgo.videonew1.fancydialoglib.Dialog_controller;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import at.blogc.android.views.ExpandableTextView;
+import market.goldandgo.videonew1.API.NestedListView;
+import market.goldandgo.videonew1.API.Zawgyitextview;
+import market.goldandgo.videonew1.Biged_series;
+import market.goldandgo.videonew1.Detail_recycler;
+import market.goldandgo.videonew1.Object.Constant;
+import market.goldandgo.videonew1.Object.get;
+import market.goldandgo.videonew1.Object.header_object;
+import market.goldandgo.videonew1.R;
+import market.goldandgo.videonew1.Series_Detail_recycler;
+import market.goldandgo.videonew1.Utils.HFRecyclerView;
+import market.goldandgo.videonew1.Utils.Mydatabase;
+import market.goldandgo.videonew1.fancydialoglib.Dialog_controller;
 
 
 /**
@@ -87,76 +91,6 @@ public class Series_Detail_recycler_adapter extends HFRecyclerView<get> {
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int i) {
         if (holder instanceof HeaderViewHolder) {
             final HeaderViewHolder holder1 = (HeaderViewHolder) holder;
-
-
-            if (Constant.Mrecshow()){
-
-                AdView adView = new AdView(ac);
-                adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
-                adView.setAdUnitId(Constant.Mrect);
-                holder1.admrect.addView(adView);
-                AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                        .build();
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        holder1.admrect.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(int i) {
-                        super.onAdFailedToLoad(i);
-                        holder1.admrect.setVisibility(View.GONE);
-                    }
-                });
-
-            }
-
-            if (Constant.IsShowStartappads()) {
-                SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(Constant.mopubRect);
-                MoPub.initializeSdk(ac, configBuilder.build(), new SdkInitializationListener() {
-                    @Override
-                    public void onInitializationFinished() {
-                        Log.e("onBannerLoaded", "onBannerLoaded");
-
-                        holder1.moPubView.setAdUnitId(Constant.mopubRect); // Enter your Ad Unit ID from www.mopub.com
-                        holder1.moPubView.loadAd();
-                        holder1.moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
-                            @Override
-                            public void onBannerLoaded(MoPubView banner) {
-                                holder1.moPubView.setVisibility(View.VISIBLE);
-                                Log.e("onBannerLoaded2", "onBannerLoaded2");
-                            }
-
-                            @Override
-                            public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                                holder1.moPubView.setVisibility(View.GONE);
-                                Log.e("onBannerFailed", errorCode + "");
-                            }
-
-                            @Override
-                            public void onBannerClicked(MoPubView banner) {
-                                Log.e("onBannerClicked", "onBannerClicked");
-                            }
-
-                            @Override
-                            public void onBannerExpanded(MoPubView banner) {
-                                Log.e("onBannerExpanded", "onBannerExpanded");
-                            }
-
-                            @Override
-                            public void onBannerCollapsed(MoPubView banner) {
-                                Log.e("onBannerCollapsed", "onBannerCollapsed");
-                            }
-                        });
-                    }
-                });
-
-            }
-
 
 
             final String fpath = Constant.datalocation_scover + "s"+Series_Detail_recycler.getmid()+ ".fmovie";
@@ -506,7 +440,6 @@ public class Series_Detail_recycler_adapter extends HFRecyclerView<get> {
 
         public RelativeLayout border,admrect;
         public ImageView gold;
-        public MoPubView moPubView;
 
         public HeaderViewHolder(View v) {
             super(v);
@@ -532,7 +465,6 @@ public class Series_Detail_recycler_adapter extends HFRecyclerView<get> {
             commentlayout = (LinearLayout) v.findViewById(R.id.commentlayout);
             show_v = (LinearLayout) v.findViewById(R.id.show_v);
             visible_ep= (Button) v.findViewById(R.id.visible_ep);
-            moPubView = (MoPubView) v.findViewById(R.id.adviewrect);
         }
     }
 

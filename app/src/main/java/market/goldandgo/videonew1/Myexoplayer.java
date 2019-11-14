@@ -13,12 +13,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-
-import com.google.android.exoplayer2.*;
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -35,11 +37,9 @@ import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.TransferListener;
 import com.google.android.exoplayer2.util.Util;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
+
 import com.wang.avi.AVLoadingIndicatorView;
+
 import market.goldandgo.videonew1.Object.Constant;
 
 public class Myexoplayer extends AppCompatActivity {
@@ -58,32 +58,7 @@ public class Myexoplayer extends AppCompatActivity {
     long watedtime = 0;
     FrameLayout fm;
 
-    private void Setbanner_Ads() {
-        if (Constant.bannershow()){
-            AdView adView = new AdView(this);
-            adView.setAdSize(AdSize.SMART_BANNER);
-            adView.setAdUnitId(Constant.Banner);
-            RelativeLayout layout = (RelativeLayout) findViewById(R.id.ad_view);
-            layout.addView(adView);
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                    .build();
 
-            try{
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        fm.setVisibility(View.VISIBLE);
-                    }
-                });
-            }catch (Exception e){
-
-            }
-        }
-
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -138,11 +113,10 @@ public class Myexoplayer extends AppCompatActivity {
             }
         });*/
 
+
         player.addListener(new ExoPlayer.EventListener() {
-
-
             @Override
-            public void onTimelineChanged(Timeline timeline, @Nullable Object manifest, int reason) {
+            public void onTimelineChanged(Timeline timeline, Object manifest) {
 
             }
 
@@ -154,18 +128,14 @@ public class Myexoplayer extends AppCompatActivity {
             @Override
             public void onLoadingChanged(boolean isLoading) {
                 avaliablebuffer = player.getBufferedPosition();
-
             }
 
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-
-
-
                 switch (playbackState) {
                     case ExoPlayer.STATE_BUFFERING:
-                    Log.e("STATE_BUFFERING","STATE_BUFFERING");
-                    //    Log.e("e", player.getCurrentPosition() + " > buffer " + avaliablebuffer);
+                        Log.e("STATE_BUFFERING","STATE_BUFFERING");
+                        //    Log.e("e", player.getCurrentPosition() + " > buffer " + avaliablebuffer);
 
                         if (player.getCurrentPosition() > avaliablebuffer) {
 
@@ -202,25 +172,12 @@ public class Myexoplayer extends AppCompatActivity {
                 } else if (playWhenReady) {
                     fm.setVisibility(View.GONE);
                 } else {
-                   Setbanner_Ads();
+                   // Setbanner_Ads();
                 }
-
-
-            }
-
-            @Override
-            public void onRepeatModeChanged(int repeatMode) {
-
-            }
-
-            @Override
-            public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
-
             }
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-
                 seekvalue = player.getCurrentPosition();
                 pg.setVisibility(View.VISIBLE);
                 pg.show();
@@ -229,25 +186,19 @@ public class Myexoplayer extends AppCompatActivity {
                         mediaDataSourceFactory, extractorsFactory, null, null);
                 player.prepare(mediaSource);
                 player.seekTo(seekvalue);
-
             }
 
             @Override
-            public void onPositionDiscontinuity(int reason) {
+            public void onPositionDiscontinuity() {
 
             }
-
 
             @Override
             public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
 
             }
-
-            @Override
-            public void onSeekProcessed() {
-
-            }
         });
+
 
         simpleExoPlayerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
         player.seekTo(0);

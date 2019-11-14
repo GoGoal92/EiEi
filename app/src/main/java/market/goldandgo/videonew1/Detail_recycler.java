@@ -26,17 +26,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
-import com.mopub.mobileads.MoPubView;
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -85,76 +82,33 @@ public class Detail_recycler extends AppCompatActivity {
 
     private void Setbanner_Ads() {
         if (Constant.bannershow()) {
-            AdView adView = new AdView(this);
-            adView.setAdSize(AdSize.SMART_BANNER);
-            adView.setAdUnitId(Constant.Banner);
+            AdView adView = new AdView(this, Constant.Banner, AdSize.BANNER_HEIGHT_50);
             RelativeLayout layout = (RelativeLayout) findViewById(R.id.ad_view);
             layout.addView(adView);
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                    .build();
-
-
             final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
-
-
-            try {
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        fm.setVisibility(View.VISIBLE);
-                    }
-                });
-            } catch (Exception e) {
-
-            }
-        }
-
-    }
-
-
-    private void SetMopubBanner() {
-        if (Constant.IsShowStartappads()) {
-            SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(Constant.mopubBanner);
-            MoPub.initializeSdk(this, configBuilder.build(), new SdkInitializationListener() {
+            adView.setAdListener(new AdListener() {
                 @Override
-                public void onInitializationFinished() {
-                    Log.e("onBannerLoaded", "onBannerLoaded");
-                    MoPubView moPubView = (MoPubView) findViewById(R.id.adview);
-                    moPubView.setAdUnitId(Constant.mopubBanner); // Enter your Ad Unit ID from www.mopub.com
-                    moPubView.loadAd();
-                    final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
-                    moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
-                        @Override
-                        public void onBannerLoaded(MoPubView banner) {
-                            fm.setVisibility(View.VISIBLE);
-                            Log.e("onBannerLoaded2", "onBannerLoaded2");
-                        }
+                public void onError(Ad ad, AdError adError) {
 
-                        @Override
-                        public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                            Log.e("onBannerFailed", errorCode + "");
-                        }
+                }
 
-                        @Override
-                        public void onBannerClicked(MoPubView banner) {
-                            Log.e("onBannerClicked", "onBannerClicked");
-                        }
+                @Override
+                public void onAdLoaded(Ad ad) {
 
-                        @Override
-                        public void onBannerExpanded(MoPubView banner) {
-                            Log.e("onBannerExpanded", "onBannerExpanded");
-                        }
+                    fm.setVisibility(View.VISIBLE);
+                }
 
-                        @Override
-                        public void onBannerCollapsed(MoPubView banner) {
-                            Log.e("onBannerCollapsed", "onBannerCollapsed");
-                        }
-                    });
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
                 }
             });
+            adView.loadAd();
 
 
         }
@@ -167,7 +121,7 @@ public class Detail_recycler extends AppCompatActivity {
         setContentView(R.layout.detail_recycler);
         ac = this;
         Setbanner_Ads();
-        SetMopubBanner();
+
 
         rv = (RecyclerView) findViewById(R.id.rv);
         rv.setHasFixedSize(true);
@@ -281,7 +235,7 @@ public class Detail_recycler extends AppCompatActivity {
 
     }
 
-    static InterstitialAd mInterstitialAd;
+    static InterstitialAd interstitialAd;
 
     public static void Interreload(final String type, final String hdsize, final String sdsize, final String HDlink, final String SDlink) {
 
@@ -291,30 +245,22 @@ public class Detail_recycler extends AppCompatActivity {
             pd.setMessage("Loading for sponsor Ads , PLease Wait ....");
             pd.show();
 
-            mInterstitialAd = new InterstitialAd(ac);
-            mInterstitialAd.setAdUnitId(Constant.Inter);
-            AdRequest adRequestinter = new AdRequest.Builder().addTestDevice(Constant.testdev).build();
-            mInterstitialAd.loadAd(adRequestinter);
-            mInterstitialAd.setAdListener(new AdListener() {
+            interstitialAd = new InterstitialAd(ac, Constant.Inter);
+            interstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
-                public void onAdLoaded() {
-                    super.onAdLoaded();
-                    mInterstitialAd.show();
-
-                    pd.dismiss();
-                    if (type.equals("watch")) {
-                        Showwatchdialog(hdsize, sdsize, HDlink, SDlink);
-                    } else if (type.equals("download")) {
-                        Showdownloaddialog(hdsize, sdsize, HDlink, SDlink);
-                    } else {
-                        Showcopydialog(hdsize, sdsize, HDlink, SDlink);
-                    }
+                public void onInterstitialDisplayed(Ad ad) {
 
                 }
 
                 @Override
-                public void onAdFailedToLoad(int i) {
-                    super.onAdFailedToLoad(i);
+                public void onInterstitialDismissed(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+
+
                     pd.dismiss();
                     if (type.equals("watch")) {
                         Showwatchdialog(hdsize, sdsize, HDlink, SDlink);
@@ -325,79 +271,49 @@ public class Detail_recycler extends AppCompatActivity {
                     }
                 }
 
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    interstitialAd.show();
 
+                    pd.dismiss();
+                    if (type.equals("watch")) {
+                        Showwatchdialog(hdsize, sdsize, HDlink, SDlink);
+                    } else if (type.equals("download")) {
+                        Showdownloaddialog(hdsize, sdsize, HDlink, SDlink);
+                    } else {
+                        Showcopydialog(hdsize, sdsize, HDlink, SDlink);
+                    }
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
             });
+
+            interstitialAd.loadAd();
+
         } else {
 
 
 //
-            if (Constant.IsShowStartappads()) {
-
-                final ProgressDialog pd = new ProgressDialog(ac);
-                pd.setMessage("Loading for sponsor Ads , PLease Wait ....");
-                pd.show();
-                final MoPubInterstitial mInterstitial = new MoPubInterstitial(ac, Constant.mopubInter);
-                mInterstitial.setInterstitialAdListener(new MoPubInterstitial.InterstitialAdListener() {
-                    @Override
-                    public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-
-                        mInterstitial.show();
-                        pd.dismiss();
-                        if (type.equals("watch")){
-                            Showwatchdialog(hdsize,sdsize,HDlink,SDlink);
-                        }else if (type.equals("download")){
-                            Showdownloaddialog(hdsize,sdsize,HDlink,SDlink);
-                        }else{
-                            Showcopydialog(hdsize,sdsize,HDlink,SDlink);
-                        }
-
-                    }
-
-                    @Override
-                    public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-                        pd.dismiss();
-                        if (type.equals("watch")){
-                            Showwatchdialog(hdsize,sdsize,HDlink,SDlink);
-                        }else if (type.equals("download")){
-                            Showdownloaddialog(hdsize,sdsize,HDlink,SDlink);
-                        }else{
-                            Showcopydialog(hdsize,sdsize,HDlink,SDlink);
-                        }
-                    }
-
-                    @Override
-                    public void onInterstitialShown(MoPubInterstitial interstitial) {
-
-                    }
-
-                    @Override
-                    public void onInterstitialClicked(MoPubInterstitial interstitial) {
-
-                    }
-
-                    @Override
-                    public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-
-                    }
-                });
-                mInterstitial.load();
-            }else{
-                if (type.equals("watch")){
-                    Showwatchdialog(hdsize,sdsize,HDlink,SDlink);
-                }else if (type.equals("download")){
-                    Showdownloaddialog(hdsize,sdsize,HDlink,SDlink);
-                }else{
-                    Showcopydialog(hdsize,sdsize,HDlink,SDlink);
-                }
+            if (type.equals("watch")) {
+                Showwatchdialog(hdsize, sdsize, HDlink, SDlink);
+            } else if (type.equals("download")) {
+                Showdownloaddialog(hdsize, sdsize, HDlink, SDlink);
+            } else {
+                Showcopydialog(hdsize, sdsize, HDlink, SDlink);
             }
 
-            //
-
-
-        }
-
-
     }
+
+
+}
 
 
 

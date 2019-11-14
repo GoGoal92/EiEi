@@ -18,15 +18,13 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubView;
+
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.wang.avi.AVLoadingIndicatorView;
 import market.goldandgo.videonew1.API.Zawgyitextview;
 import market.goldandgo.videonew1.MyHttpclient.MyRequest;
@@ -53,81 +51,41 @@ public class Search extends AppCompatActivity implements searchItemClickListener
     static String ss="0";
 
     private void Setbanner_Ads() {
-        if (Constant.bannershow()){
-            AdView adView = new AdView(this);
-            adView.setAdSize(AdSize.SMART_BANNER);
-            adView.setAdUnitId(Constant.Banner);
+        if (Constant.bannershow()) {
+            AdView adView = new AdView(this, Constant.Banner, AdSize.BANNER_HEIGHT_50);
             RelativeLayout layout = (RelativeLayout) findViewById(R.id.ad_view);
             layout.addView(adView);
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                    .build();
-
-
             final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
-
-
-            try{
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        fm.setVisibility(View.VISIBLE);
-                    }
-                });
-            }catch (Exception e){
-
-            }
-        }
-
-    }
-
-    private void SetMopubBanner() {
-        if (Constant.IsShowStartappads()){
-            SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(Constant.mopubBanner);
-            MoPub.initializeSdk(this, configBuilder.build(), new SdkInitializationListener() {
+            adView.setAdListener(new AdListener() {
                 @Override
-                public void onInitializationFinished() {
-                    Log.e("onBannerLoaded","onBannerLoaded");
-                    MoPubView moPubView = (MoPubView) findViewById(R.id.adview);
-                    moPubView.setAdUnitId(Constant.mopubBanner); // Enter your Ad Unit ID from www.mopub.com
-                    moPubView.loadAd();
-                    final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
-                    moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
-                        @Override
-                        public void onBannerLoaded(MoPubView banner) {
-                            fm.setVisibility(View.VISIBLE);
-                            Log.e("onBannerLoaded2","onBannerLoaded2");
-                        }
+                public void onError(Ad ad, AdError adError) {
 
-                        @Override
-                        public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                            Log.e("onBannerFailed",errorCode+"");
-                        }
+                }
 
-                        @Override
-                        public void onBannerClicked(MoPubView banner) {
-                            Log.e("onBannerClicked","onBannerClicked");
-                        }
+                @Override
+                public void onAdLoaded(Ad ad) {
 
-                        @Override
-                        public void onBannerExpanded(MoPubView banner) {
-                            Log.e("onBannerExpanded","onBannerExpanded");
-                        }
+                    fm.setVisibility(View.VISIBLE);
+                }
 
-                        @Override
-                        public void onBannerCollapsed(MoPubView banner) {
-                            Log.e("onBannerCollapsed","onBannerCollapsed");
-                        }
-                    });
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
                 }
             });
+            adView.loadAd();
 
 
         }
 
     }
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -135,7 +93,7 @@ public class Search extends AppCompatActivity implements searchItemClickListener
         setContentView(R.layout.search_layout);
         ac = this;
         Setbanner_Ads();
-        SetMopubBanner();
+
         result= (Zawgyitextview) findViewById(R.id.result);
         ed = (EditText) findViewById(R.id.ed);
         back = (ImageView) findViewById(R.id.gg);

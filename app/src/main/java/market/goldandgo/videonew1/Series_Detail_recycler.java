@@ -22,14 +22,14 @@ import android.view.View;
 import android.view.Window;
 import android.widget.*;
 
-import com.google.android.exoplayer2.C;
-import com.google.android.gms.ads.*;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
-import com.mopub.mobileads.MoPubView;
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.InterstitialAd;
+import com.facebook.ads.InterstitialAdListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -80,36 +80,40 @@ public class Series_Detail_recycler extends AppCompatActivity {
 
     private void Setbanner_Ads() {
         if (Constant.bannershow()) {
-            AdView adView = new AdView(this);
-            adView.setAdSize(AdSize.SMART_BANNER);
-            adView.setAdUnitId(Constant.Banner);
+            AdView adView = new AdView(this, Constant.Banner, AdSize.BANNER_HEIGHT_50);
             RelativeLayout layout = (RelativeLayout) findViewById(R.id.ad_view);
             layout.addView(adView);
-            AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                    .build();
-
-
             final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
+            adView.setAdListener(new AdListener() {
+                @Override
+                public void onError(Ad ad, AdError adError) {
+
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+
+                    fm.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            });
+            adView.loadAd();
 
 
-            try {
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        fm.setVisibility(View.VISIBLE);
-                    }
-                });
-            } catch (Exception e) {
-
-            }
         }
 
     }
 
-    static InterstitialAd mInterstitialAd;
+    static InterstitialAd interstitialAd;
 
     private static void Interreload() {
         if (Constant.intershow()) {
@@ -117,119 +121,53 @@ public class Series_Detail_recycler extends AppCompatActivity {
             pd.setMessage("Loading for sponsor Ads , PLease Wait ....");
             pd.show();
 
-            mInterstitialAd = new InterstitialAd(ac);
-            mInterstitialAd.setAdUnitId(Constant.Inter);
-            AdRequest adRequestinter = new AdRequest.Builder().addTestDevice("6CC2048E31D4506B7BFEFEFD6A4BC0F6").build();
-            mInterstitialAd.loadAd(adRequestinter);
-            mInterstitialAd.setAdListener(new AdListener() {
+
+            interstitialAd = new InterstitialAd(ac, Constant.Inter);
+            interstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
-                public void onAdLoaded() {
-                    super.onAdLoaded();
-                    mInterstitialAd.show();
+                public void onInterstitialDisplayed(Ad ad) {
+
+                }
+
+                @Override
+                public void onInterstitialDismissed(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
                     pd.dismiss();
                     Showdialog();
                 }
 
                 @Override
-                public void onAdFailedToLoad(int i) {
-                    super.onAdFailedToLoad(i);
+                public void onAdLoaded(Ad ad) {
+                    interstitialAd.show();
                     pd.dismiss();
                     Showdialog();
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
                 }
             });
 
+            interstitialAd.loadAd();
 
         } else {
 
-            if (Constant.IsShowStartappads()) {
-
-                final ProgressDialog pd = new ProgressDialog(ac);
-                pd.setMessage("Loading for sponsor Ads , PLease Wait ....");
-                pd.show();
-                final MoPubInterstitial mInterstitial = new MoPubInterstitial(ac, Constant.mopubInter);
-                mInterstitial.setInterstitialAdListener(new MoPubInterstitial.InterstitialAdListener() {
-                    @Override
-                    public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-                        mInterstitial.show();
-                        pd.dismiss();
-                        Showdialog();
-                    }
-
-                    @Override
-                    public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-                        pd.dismiss();
-                        Showdialog();
-                    }
-
-                    @Override
-                    public void onInterstitialShown(MoPubInterstitial interstitial) {
-
-                    }
-
-                    @Override
-                    public void onInterstitialClicked(MoPubInterstitial interstitial) {
-
-                    }
-
-                    @Override
-                    public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-
-                    }
-                });
-                mInterstitial.load();
-            }else{
-                Showdialog();
-            }
-
+            Showdialog();
 
         }
     }
 
-    private void SetMopubBanner() {
-        if (Constant.IsShowStartappads()){
-            SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(Constant.mopubBanner);
-            MoPub.initializeSdk(this, configBuilder.build(), new SdkInitializationListener() {
-                @Override
-                public void onInitializationFinished() {
-                    Log.e("onBannerLoaded","onBannerLoaded");
-                    MoPubView moPubView = (MoPubView) findViewById(R.id.adview);
-                    moPubView.setAdUnitId(Constant.mopubBanner); // Enter your Ad Unit ID from www.mopub.com
-                    moPubView.loadAd();
-                    final FrameLayout fm = (FrameLayout) findViewById(R.id.ad_vi1ew);
-                    moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
-                        @Override
-                        public void onBannerLoaded(MoPubView banner) {
-                            fm.setVisibility(View.VISIBLE);
-                            Log.e("onBannerLoaded2","onBannerLoaded2");
-                        }
 
-                        @Override
-                        public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                            Log.e("onBannerFailed",errorCode+"");
-                        }
-
-                        @Override
-                        public void onBannerClicked(MoPubView banner) {
-                            Log.e("onBannerClicked","onBannerClicked");
-                        }
-
-                        @Override
-                        public void onBannerExpanded(MoPubView banner) {
-                            Log.e("onBannerExpanded","onBannerExpanded");
-                        }
-
-                        @Override
-                        public void onBannerCollapsed(MoPubView banner) {
-                            Log.e("onBannerCollapsed","onBannerCollapsed");
-                        }
-                    });
-                }
-            });
-
-
-        }
-
-    }
 
 
 
@@ -239,7 +177,7 @@ public class Series_Detail_recycler extends AppCompatActivity {
         setContentView(R.layout.detail_recycler);
         ac = this;
         Setbanner_Ads();
-        SetMopubBanner();
+
       //  ShowStartappbanner();
 
         rv = (RecyclerView) findViewById(R.id.rv);

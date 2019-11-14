@@ -9,6 +9,7 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -181,7 +182,7 @@ public class Splash extends AppCompatActivity implements EasyPermissions.Permiss
                 public void run() {
 
                     Setfirebase();
-
+                   // MyRequest.checkversion(hashKey);
 
                 }
             }, 2000);
@@ -227,7 +228,8 @@ public class Splash extends AppCompatActivity implements EasyPermissions.Permiss
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Setfirebase();
+                //Setfirebase();
+                MyRequest.checkversion(hashKey);
             }
         }, 2000);
     }
@@ -251,8 +253,8 @@ public class Splash extends AppCompatActivity implements EasyPermissions.Permiss
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
-                    Setfirebase();
+                    MyRequest.checkversion(hashKey);
+                   // Setfirebase();
 
 
                 }
@@ -358,6 +360,13 @@ public class Splash extends AppCompatActivity implements EasyPermissions.Permiss
             } else {
                 Dialog_controller.showbandialog(ac);
             }
+
+
+        }else if (status.equals("5")) {
+            Constant.SetFakedata(s);
+            Intent it = new Intent(ac, FakeActivity.class);
+            ac.startActivity(it);
+            ac.finish();
 
 
         }

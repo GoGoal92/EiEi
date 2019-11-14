@@ -66,7 +66,7 @@ public class Constant {
             Banner, Mrectcon, Inter, Bannercon, Intercon, Mrect, startappads,dmopen;
     public static String username, fbid;
 
-    public static String host;
+    public static String  host="http://192.168.8.114/fmovie/v8serverCost/";
 
     public static String moviephoto;
     public static String saveimage_setting = "v7";
@@ -133,6 +133,7 @@ public class Constant {
 
     public static void seturl(String hostv) {
         host = hostv;
+       // host="http://192.168.8.114/fmovie/v8serverCost/";
 
 
     }
@@ -177,7 +178,7 @@ public class Constant {
         }
     }
 
-    public String md5(String s) {
+    public static String md5(String s) {
 
 
         try {
@@ -241,10 +242,8 @@ public class Constant {
 
         Banner = Jsonparser.getonestring(s, "banner");
         Inter = Jsonparser.getonestring(s, "inter");
-        Mrect= Jsonparser.getonestring(s, "mrectads");
         Bannercon = Jsonparser.getonestring(s, "bannercon");
         Intercon = Jsonparser.getonestring(s, "intercon");
-        Mrectcon = Jsonparser.getonestring(s, "mrectcon");
 
 
         String code = Jsonparser.getonestring(s, "code");
@@ -252,11 +251,9 @@ public class Constant {
         username = Jsonparser.getonestring(code, "username");
         fbid = Jsonparser.getonestring(code, "fbid");
 
-        appplaystrore = Jsonparser.getonestring(s, "playstore");
         facebookgroup = Jsonparser.getonestring(s, "group");
         facebookpage = Jsonparser.getonestring(s, "page");
 
-        startappads = Jsonparser.getonestring(s, "Startappads");
         dmopen= Jsonparser.getonestring(s, "dmopen");
 
         shutdownads();
@@ -471,5 +468,10 @@ public class Constant {
         }
 
         return false;
+    }
+
+    public static void SetFakedata(String s) {
+        Banner = Jsonparser.getonestring(s, "banner");
+        Inter = Jsonparser.getonestring(s, "inter");
     }
 }

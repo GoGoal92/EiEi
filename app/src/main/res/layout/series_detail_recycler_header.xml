@@ -94,14 +94,7 @@
                 android:layout_width="300dp"
                 android:layout_height="250dp"></RelativeLayout>
 
-            <com.mopub.mobileads.MoPubView
-                android:visibility="gone"
-                android:layout_marginTop="10dp"
-                android:id="@+id/adviewrect"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="300dp"
-                android:layout_height="250dp"
-                />
+
 
             <View
                     android:layout_marginRight="10dp"

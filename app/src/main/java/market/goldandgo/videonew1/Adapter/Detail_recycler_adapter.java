@@ -23,11 +23,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubView;
+
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -97,76 +93,6 @@ public class Detail_recycler_adapter extends HFRecyclerView<get> {
 
 
             final HeaderViewHolder holder1 = (HeaderViewHolder) holder;
-
-            if (Constant.Mrecshow()){
-
-                AdView adView = new AdView(ac);
-                adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
-                adView.setAdUnitId(Constant.Mrect);
-                holder1.admrect.addView(adView);
-                AdRequest adRequest = new AdRequest.Builder().addTestDevice(Constant.testdev)
-                        .build();
-                adView.loadAd(adRequest);
-                adView.setAdListener(new AdListener() {
-
-                    @Override
-                    public void onAdLoaded() {
-                        super.onAdLoaded();
-                        holder1.admrect.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(int i) {
-                        super.onAdFailedToLoad(i);
-                        holder1.admrect.setVisibility(View.GONE);
-                    }
-                });
-
-            }
-
-
-            if (Constant.IsShowStartappads()) {
-                SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(Constant.mopubRect);
-                MoPub.initializeSdk(ac, configBuilder.build(), new SdkInitializationListener() {
-                    @Override
-                    public void onInitializationFinished() {
-                        Log.e("onBannerLoaded", "onBannerLoaded");
-
-                        holder1.moPubView.setAdUnitId(Constant.mopubRect); // Enter your Ad Unit ID from www.mopub.com
-                        holder1.moPubView.loadAd();
-                        holder1.moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
-                            @Override
-                            public void onBannerLoaded(MoPubView banner) {
-                                holder1.moPubView.setVisibility(View.VISIBLE);
-                                Log.e("onBannerLoaded2", "onBannerLoaded2");
-                            }
-
-                            @Override
-                            public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                                holder1.moPubView.setVisibility(View.GONE);
-                                Log.e("onBannerFailed", errorCode + "");
-                            }
-
-                            @Override
-                            public void onBannerClicked(MoPubView banner) {
-                                Log.e("onBannerClicked", "onBannerClicked");
-                            }
-
-                            @Override
-                            public void onBannerExpanded(MoPubView banner) {
-                                Log.e("onBannerExpanded", "onBannerExpanded");
-                            }
-
-                            @Override
-                            public void onBannerCollapsed(MoPubView banner) {
-                                Log.e("onBannerCollapsed", "onBannerCollapsed");
-                            }
-                        });
-                    }
-                });
-
-            }
-
 
             final String fpath = Constant.datalocation_movie + Detail_recycler.getmid() + ".fmovie";
             final File myfile = new File(fpath);
@@ -516,7 +442,6 @@ public class Detail_recycler_adapter extends HFRecyclerView<get> {
         public ImageView gold;
 
         public RelativeLayout admrect;
-        public MoPubView moPubView;
 
         public HeaderViewHolder(View v) {
             super(v);
@@ -544,7 +469,6 @@ public class Detail_recycler_adapter extends HFRecyclerView<get> {
             commentlayout = (LinearLayout) v.findViewById(R.id.commentlayout);
             show_v = (LinearLayout) v.findViewById(R.id.show_v);
             admrect = (RelativeLayout) v.findViewById(R.id.admrect);
-            moPubView = (MoPubView) v.findViewById(R.id.adviewrect);
         }
     }
 

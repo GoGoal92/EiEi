@@ -13,7 +13,7 @@ public interface interface_api {
 
 
     @FormUrlEncoded
-    @POST("v8/Checkversion830")
+    @POST("v8/Checkversion840")
     Call<String> Checkversion(@Field("api") String name, @Field("pid") String pid, @Field("pmodel") String pmodel, @Field("hashKey") String hashKey);
 
 
